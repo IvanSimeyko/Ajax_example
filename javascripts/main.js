@@ -7,8 +7,8 @@ function loadHtmlFiles(element) {
 	$.ajax({
 		url: headUrl + element,
 		success: function(data) {
-			$('.wrapper').append(data);
-			//$(document.body).append(data);
+			//$('.wrapper').append(data);
+			$(document.body).append(data);
 		},
 		error: function(data) {
 		  console.error(data);
