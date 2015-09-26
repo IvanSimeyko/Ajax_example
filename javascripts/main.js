@@ -23,7 +23,7 @@ function loadHtmlFiles(element) {
 
 htmlList.forEach( loadHtmlFiles );
 
-var jsonList = ['some1.json', 'some2.json', 'some3.json'];
+var jsonList = ['some_1.json', 'some_2.json', 'some_3.json'];
 
 function loadJSONFiles(element) {
 	$.ajax({
@@ -41,4 +41,3 @@ function loadJSONFiles(element) {
 	});
 }
 jsonList.forEach( loadJSONFiles );
-
