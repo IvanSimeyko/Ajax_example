@@ -20,4 +20,25 @@ function loadHtmlFiles(element) {
 	});
 }
 
+
 htmlList.forEach( loadHtmlFiles );
+
+var jsonList = ['some1.json', 'some2.json', 'some3.json'];
+
+function loadJSONFiles(element) {
+	$.ajax({
+		dataType: 'json',
+		method: 'GET',
+		url: headUrl + element,
+		success: function(data) {
+			var wrapDiv = $('<div>');
+			wrapDiv.html('<h2>' + data.title + '</h2><p>' + data.desc + '</p>');
+			$('section').append(wrapDiv);
+		},
+		error: function(data) {
+		  console.error(data);
+		}
+	});
+}
+jsonList.forEach( loadJSONFiles );
+
