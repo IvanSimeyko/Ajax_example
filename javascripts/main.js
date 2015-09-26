@@ -8,7 +8,7 @@ var htmlList = ['simple_1.html' ,'simple_2.html', 'simple_3.html'];
 function loadHtmlFiles(element) {
 	$.ajax({
         //address of the request
-		url: headUrl,
+		url: headUrl + element,
         /// if true
 		success: function(data) {
 			//$('.wrapper').append(data);
