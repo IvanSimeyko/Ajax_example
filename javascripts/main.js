@@ -1,7 +1,6 @@
 console.log('This would be the main JS file.');
 
 
-
 var headUrl = 'http://ivansimeyko.github.io/Ajax_example/';
 var htmlList = ['simple_1.html' ,'simple_2.html', 'simple_3.html'];
 
@@ -20,7 +19,7 @@ function loadHtmlFiles(element) {
 	});
 }
 
-
+//adding reading json files
 htmlList.forEach( loadHtmlFiles );
 
 var jsonList = ['some_1.json', 'some_2.json', 'some_3.json'];
@@ -33,7 +32,7 @@ function loadJSONFiles(element) {
 		success: function(data) {
 			var wrapDiv = $('<div>');
 			wrapDiv.html('<h2>' + data.title + '</h2><p>' + data.desc + '</p>');
-			$('.outer').append(wrapDiv);
+			$('#welcome-to-github-pages').append(wrapDiv);
 		},
 		error: function(data) {
 		  console.error(data);
@@ -41,3 +40,15 @@ function loadJSONFiles(element) {
 	});
 }
 jsonList.forEach( loadJSONFiles );
+
+
+var imgArray = ['dhango_applications_tw.jpg', 'fund_epur.jpg', 'JavaScriptArray.jpg'];
+
+function loadImages (element) {
+	var img = new Image();
+	img.src = element;
+	img.onload = function() {
+		$('#welcome-to-github-pages').append(img);
+	};
+}
+imgArray.forEach(loadImages);
