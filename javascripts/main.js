@@ -55,8 +55,10 @@ imgArray.forEach(loadImages);
 
 
 console.log('make a slide show');
-$('img').cycle({
-    fx:      'scrollLeft',
-    speed:    1000,
-    timeout:  2000
+$(document).ready(function() {
+    $('img').cycle({
+        fx:      'scrollLeft',
+        speed:    1000,
+        timeout:  2000
+    });
 });
