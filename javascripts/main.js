@@ -19,16 +19,16 @@ function loadHtmlFiles(element) {
 	});
 }
 
-//adding reading json files
 htmlList.forEach( loadHtmlFiles );
 
+//adding reading json files
 var jsonList = ['some_1.json', 'some_2.json', 'some_3.json'];
 
 function loadJSONFiles(element) {
 	$.ajax({
 		dataType: 'json',
 		method: 'GET',
-		url: headUrl + element,
+		url: headUrl + element,    // here did not understand
 		success: function(data) {
 			var wrapDiv = $('<div>');
 			wrapDiv.html('<h2>' + data.title + '</h2><p>' + data.desc + '</p>');
@@ -52,3 +52,11 @@ function loadImages (element) {
 	};
 }
 imgArray.forEach(loadImages);
+
+
+console.log('make a slide show');
+$('img').cycle({
+    fx:      'scrollLeft',
+    speed:    1000,
+    timeout:  2000
+});
