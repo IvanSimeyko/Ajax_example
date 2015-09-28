@@ -42,23 +42,23 @@ function loadJSONFiles(element) {
 jsonList.forEach( loadJSONFiles );
 
 
+var loadedImageCount = 0;
 var imgArray = ['dhango_applications_tw.jpg', 'fund_epur.jpg', 'JavaScriptArray.jpg'];
 
-function loadImages (element) {
-	var img = new Image();
-	img.src = element;
-	img.onload = function() {
-		$('#welcome-to-github-pages').append(img);
-	};
+function checkLoadedImages() {
+   loadedImageCount++;
+   if (loadedImageCount == imgArray.length) {
+       console.log('make a slide show');
+       $('img').cycle({ fx: 'scrollLeft', speed: 1000, timeout: 2000 });
+   }
+}
+
+function loadImages(element) {
+   var img = new Image();
+   img.src = element;
+   img.onload = function () {
+       checkLoadedImages();
+       $('#welcome-to-github-pages').append(img);
+   };
 }
 imgArray.forEach(loadImages);
-
-
-console.log('make a slide show');
-$(document).ready(function() {
-    $('img').cycle({
-        fx:      'scrollLeft',
-        speed:    1000,
-        timeout:  2000
-    });
-});
