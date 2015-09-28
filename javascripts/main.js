@@ -46,19 +46,19 @@ var loadedImageCount = 0;
 var imgArray = ['dhango_applications_tw.jpg', 'fund_epur.jpg', 'JavaScriptArray.jpg'];
 
 function checkLoadedImages() {
-   loadedImageCount++;
-   if (loadedImageCount == imgArray.length) {
-       console.log('make a slide show');
-       $('img').cycle({ fx: 'scrollLeft', speed: 1000, timeout: 2000 });
-   }
+    loadedImageCount++;
+    if (loadedImageCount == imgArray.length) {
+        console.log('make a slide show');
+        $('#welcome-to-github-pages').cycle({ fx: 'scrollLeft', speed: 1000, timeout: 2000 });
+    }
 }
 
 function loadImages(element) {
-   var img = new Image();
-   img.src = element;
-   img.onload = function () {
-       checkLoadedImages();
-       $('#welcome-to-github-pages').append(img);
-   };
+    var img = new Image();
+    img.src = element;
+    img.onload = function () {
+    $('#welcome-to-github-pages').append(img);
+        checkLoadedImages();
+    };
 }
 imgArray.forEach(loadImages);
