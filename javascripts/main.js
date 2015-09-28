@@ -32,7 +32,7 @@ function loadJSONFiles(element) {
 		success: function(data) {
 			var wrapDiv = $('<div>');
 			wrapDiv.html('<h2>' + data.title + '</h2><p>' + data.desc + '</p>');
-			$('#welcome-to-github-pages').append(wrapDiv);
+			$('#designer-templates').append(wrapDiv);
 		},
 		error: function(data) {
 		  console.error(data);
