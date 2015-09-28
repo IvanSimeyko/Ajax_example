@@ -49,7 +49,7 @@ function checkLoadedImages() {
     loadedImageCount++;
     if (loadedImageCount == imgArray.length) {
         console.log('make a slide show');
-        $('#welcome-to-github-pages').cycle({ fx: 'scrollLeft', speed: 1000, timeout: 2000 });
+        $('#img').cycle({ fx: 'scrollLeft', speed: 1000, timeout: 2000 });
     }
 }
 
@@ -57,7 +57,7 @@ function loadImages(element) {
     var img = new Image();
     img.src = element;
     img.onload = function () {
-    $('#welcome-to-github-pages').append(img);
+    $('#img').append(img);
         checkLoadedImages();
     };
 }
