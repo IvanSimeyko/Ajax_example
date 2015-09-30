@@ -22,52 +22,23 @@ var htmlList = ['simple_1.html' ,'simple_2.html', 'simple_3.html'];
 htmlList.forEach( loadHtmlFiles );*/
 
 function loadFirstPart() {
-    $.ajax({
-        //address of the request
-        url: headUrl + htmlList[0],
-        /// if true
-        success: function(data) {
-            console.log('load First Part');
-            //$('.wrapper').append(data);
-            $(document.body).append(data);
 
-            loadSecondPart();
-        },
+    for (var i in htmlList) {
+        $.ajax({
+            //address of the request
+            url: headUrl + i,
+            /// if true
+            success: function(data) {
+                console.log('load ', i);
+                //$('.wrapper').append(data);
+                $(document.body).append(data);
+
+             },
         error: function(data) {
           console.error(data);
         }
-    });
-}
-function loadSecondPart() {
-    $.ajax({
-        //address of the request
-        url: headUrl + htmlList[1],
-        /// if true
-        success: function(data) {
-            console.log('load Second Part');
-            //$('.wrapper').append(data);
-            $(document.body).append(data);
-            loadThirdPart();
-        },
-        error: function(data) {
-          console.error(data);
-        }
-    });
-}
-function loadThirdPart() {
-    $.ajax({
-        //address of the request
-        url: headUrl + htmlList[2],
-        /// if true
-        success: function(data) {
-            console.log('load Third Part');
-            //$('.wrapper').append(data);
-            $(document.body).append(data);
-        },
-        error: function(data) {
-          console.error(data);
-        }
-    });
+        });
+    }
 }
 
 loadFirstPart();
@@ -81,6 +52,7 @@ function loadJSONFiles(element) {
 		method: 'GET',
 		url: headUrl + element,    // here did not understand
 		success: function(data) {
+            console.log('load JSON Files')
 			var wrapDiv = $('<div>');
 			wrapDiv.html('<h2>' + data.title + '</h2><p>' + data.desc + '</p>');
 			$('#designer-templates').append(wrapDiv);
