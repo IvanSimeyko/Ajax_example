@@ -4,7 +4,7 @@ console.log('This would be the main JS file.');
 var headUrl = 'http://ivansimeyko.github.io/Ajax_example/';
 var htmlList = ['simple_1.html' ,'simple_2.html', 'simple_3.html'];
 
-function loadHtmlFiles(element) {
+/*function loadHtmlFiles(element) {
 	$.ajax({
         //address of the request
 		url: headUrl + element,
@@ -19,7 +19,58 @@ function loadHtmlFiles(element) {
 	});
 }
 
-htmlList.forEach( loadHtmlFiles );
+htmlList.forEach( loadHtmlFiles );*/
+
+function loadFirstPart() {
+    $.ajax({
+        //address of the request
+        url: headUrl + htmlList[0],
+        /// if true
+        success: function(data) {
+            console.log('load First Part');
+            //$('.wrapper').append(data);
+            $(document.body).append(data);
+
+            loadSecondPart();
+        },
+        error: function(data) {
+          console.error(data);
+        }
+    });
+}
+function loadSecondPart() {
+    $.ajax({
+        //address of the request
+        url: headUrl + htmlList[1],
+        /// if true
+        success: function(data) {
+            console.log('load Second Part');
+            //$('.wrapper').append(data);
+            $(document.body).append(data);
+            loadThirdPart();
+        },
+        error: function(data) {
+          console.error(data);
+        }
+    });
+}
+function loadThirdPart() {
+    $.ajax({
+        //address of the request
+        url: headUrl + htmlList[2],
+        /// if true
+        success: function(data) {
+            console.log('load Third Part');
+            //$('.wrapper').append(data);
+            $(document.body).append(data);
+        },
+        error: function(data) {
+          console.error(data);
+        }
+    });
+}
+
+loadFirstPart();
 
 //adding reading json files
 var jsonList = ['some_1.json', 'some_2.json', 'some_3.json'];
@@ -41,7 +92,7 @@ function loadJSONFiles(element) {
 }
 jsonList.forEach( loadJSONFiles );
 
-
+//adding reading image
 var loadedImageCount = 0;
 var imgArray = ['dhango_applications_tw.jpg', 'fund_epur.jpg', 'JavaScriptArray.jpg'];
 
