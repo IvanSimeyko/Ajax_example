@@ -28,9 +28,8 @@ function loadFirstPart() {
         $.ajax({
             url: headUrl + element,
             success: function(data) {
-                console.log('load ', element);
                 //$('.wrapper').append(data);
-                $(document.body).append(element);
+                $(document.body).append(data);
 
              },
         error: function(data) {
