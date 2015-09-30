@@ -26,7 +26,7 @@ function loadFirstPart() {
     $(htmlList).each(function(index, element){
         console.log('load ', element);
         $.ajax({
-            url: headUrl + this.element(),
+            url: headUrl + element,
             success: function(data) {
                 console.log('load ', element);
                 //$('.wrapper').append(data);
