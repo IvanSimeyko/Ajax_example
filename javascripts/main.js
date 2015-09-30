@@ -24,6 +24,7 @@ htmlList.forEach( loadHtmlFiles );*/
 function loadFirstPart() {
 
     $(htmlList).each(function(index, element){
+        console.log('load ', element);
         $.ajax({
             url: headUrl + this.element(),
             success: function(data) {
