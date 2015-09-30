@@ -23,22 +23,20 @@ htmlList.forEach( loadHtmlFiles );*/
 
 function loadFirstPart() {
 
-    for (var i in htmlList) {
+    $(htmlList).each(function(index, element){
         $.ajax({
-            //address of the request
-            url: headUrl + i,
-            /// if true
+            url: headUrl + this.element(),
             success: function(data) {
-                console.log('load ', i);
+                console.log('load ', element);
                 //$('.wrapper').append(data);
-                $(document.body).append(data);
+                $(document.body).append(element);
 
              },
         error: function(data) {
           console.error(data);
         }
         });
-    }
+    })
 }
 
 loadFirstPart();
