@@ -21,16 +21,15 @@ var htmlList = ['simple_1.html' ,'simple_2.html', 'simple_3.html'];
 
 htmlList.forEach( loadHtmlFiles );*/
 
-function loadFirstPart() {
+function loadHtmlFiles() {
 
     $(htmlList).each(function(index, element){
-        console.log('load ', element);
         $.ajax({
             url: headUrl + element,
             success: function(data) {
                 //$('.wrapper').append(data);
+                console.log('load ', element);
                 $(document.body).append(data);
-
              },
         error: function(data) {
           console.error(data);
@@ -39,28 +38,31 @@ function loadFirstPart() {
     })
 }
 
-loadFirstPart();
+loadHtmlFiles();
 
 //adding reading json files
 var jsonList = ['some_1.json', 'some_2.json', 'some_3.json'];
 
 function loadJSONFiles(element) {
-	$.ajax({
+    $(jsonList).each(function(index, element){
+        $.ajax({
 		dataType: 'json',
 		method: 'GET',
-		url: headUrl + element,    // here did not understand
+		url: headUrl + element,
 		success: function(data) {
             console.log('load JSON Files')
 			var wrapDiv = $('<div>');
 			wrapDiv.html('<h2>' + data.title + '</h2><p>' + data.desc + '</p>');
 			$('#designer-templates').append(wrapDiv);
-		},
-		error: function(data) {
-		  console.error(data);
+        },
+        error: function(data) {
+		    console.error(data);
 		}
-	});
+	    });
+    })
 }
-jsonList.forEach( loadJSONFiles );
+
+loadJSONFiles();
 
 //adding reading image
 var loadedImageCount = 0;
