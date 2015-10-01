@@ -4,8 +4,59 @@ console.log('This would be the main JS file.');
 var headUrl = 'http://ivansimeyko.github.io/Ajax_example/';
 var htmlList = ['simple_1.html' ,'simple_2.html'];
 
-var loadedImageCount = 0;
+var ajaxResult = 0;
+var $divLeft = $('<div>');
+$divLeft.css({
+	position: 'absolute',
+	width: '500px',
+	height: '500px',
+	left: '-500px',
+	border: '1px solid red'
+});
+var $divRight = $('<div>');
+$divRight.css({
+	position: 'absolute',
+	width: '500px',
+	height: '500px',
+	right: '-500px',
+	border: '1px solid red'
+});
+$.ajax({
+	url: headUrl + htmlList[0],
+	success: function(data) {
+		$divLeft.html(data);
+		$(document.body).append($divLeft);
 
+		animateDivs();
+	},
+	error: function(data) {
+	  console.error(data);
+	}
+});
+
+$.ajax({
+	url: headUrl + htmlList[1],
+	success: function(data) {
+
+		$divRight.html(data);
+		$(document.body).append($divRight);
+
+		animateDivs();
+	},
+	error: function(data) {
+	  console.error(data);
+	}
+});
+
+function animateDivs() {
+	ajaxResult++;
+	if (ajaxResult === 2) {
+		$divLeft.animate({left: 0}, 1500);
+		$divRight.animate({right: 0}, 1500);
+	}
+}
+
+/*
 var someDeffered = $.ajax(headUrl + htmlList[0]);
 
 someDeffered.then(function(result){
@@ -21,7 +72,7 @@ someDeffered.then(function(result){
 
         $('#html_2').append(result);
 	    //return $('#html_cycle').cycle({ fx: 'scrollLeft', speed: 1000, timeout: 2000 });
-    });
+    });*/
 
 
 /*function loadHtmlFiles(element) {
