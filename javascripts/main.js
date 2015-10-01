@@ -71,7 +71,7 @@ someDeffered.then(function(result){
 	    console.log(JSON.stringify(result));
 
         $('#html_2').append(result);
-	    //return $('#html_cycle').cycle({ fx: 'scrollLeft', speed: 1000, timeout: 2000 });
+	    return $('#html_cycle').cycle({ fx: 'scrollLeft', speed: 1000, timeout: 2000 });
     });
 
 
