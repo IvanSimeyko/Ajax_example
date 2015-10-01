@@ -9,13 +9,13 @@ var loadedImageCount = 0;
 var someDeffered = $.ajax(headUrl + htmlList[0]);
 
 someDeffered.then(function(result){
-
+    console.log('load tmlList[0]');
     console.log(JSON.stringify(result));
 	$('.wrapper').append(result);
 	    return $.ajax(headUrl + htmlList[1])
 
 	}).then(function(result){
-
+        console.log('load tmlList[0]');
 	    console.log(JSON.stringify(result));
 	    $('.wrapper').append(result);
 	    return $.ajax(headUrl + htmlList[2])
