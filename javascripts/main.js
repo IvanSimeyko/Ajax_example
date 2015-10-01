@@ -2,7 +2,27 @@ console.log('This would be the main JS file.');
 
 
 var headUrl = 'http://ivansimeyko.github.io/Ajax_example/';
-var htmlList = ['simple_1.html' ,'simple_2.html', 'simple_3.html'];
+var htmlList = ['simple_1.html' ,'simple_2.html'];
+
+var loadedImageCount = 0;
+
+var someDeffered = $.ajax(headUrl + htmlList[0]);
+
+someDeffered.then(function(result){
+
+    console.log(JSON.stringify(result));
+	$('.wrapper').append(result);
+	    return $.ajax(headUrl + htmlList[1])
+
+	}).then(function(result){
+
+	    console.log(JSON.stringify(result));
+	    $('.wrapper').append(result);
+	    return $.ajax(headUrl + htmlList[2])
+
+	}).then(function(result) {
+		$('.wrapper').append(result);
+	});
 
 /*function loadHtmlFiles(element) {
 	$.ajax({
@@ -21,6 +41,7 @@ var htmlList = ['simple_1.html' ,'simple_2.html', 'simple_3.html'];
 
 htmlList.forEach( loadHtmlFiles );*/
 
+/*
 function loadHtmlFiles() {
 
     $(htmlList).each(function(index, element){
@@ -84,4 +105,4 @@ function loadImages(element) {
         checkLoadedImages();
     };
 }
-imgArray.forEach(loadImages);
+imgArray.forEach(loadImages);*/
