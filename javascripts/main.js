@@ -56,7 +56,7 @@ function animateDivs() {
 	}
 }
 
-/*
+
 var someDeffered = $.ajax(headUrl + htmlList[0]);
 
 someDeffered.then(function(result){
@@ -72,7 +72,7 @@ someDeffered.then(function(result){
 
         $('#html_2').append(result);
 	    //return $('#html_cycle').cycle({ fx: 'scrollLeft', speed: 1000, timeout: 2000 });
-    });*/
+    });
 
 
 /*function loadHtmlFiles(element) {
