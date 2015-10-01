@@ -19,7 +19,7 @@ someDeffered.then(function(result){
         console.log('loadhtmlList[1]');
 	    console.log(JSON.stringify(result));
 
-        $('#hnml_2').append(result);
+        $('#html_2').append(result);
 	    return $('#html_cycle').cycle({ fx: 'scrollLeft', speed: 1000, timeout: 2000 });
     });
 
