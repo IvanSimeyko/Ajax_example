@@ -9,20 +9,20 @@ var loadedImageCount = 0;
 var someDeffered = $.ajax(headUrl + htmlList[0]);
 
 someDeffered.then(function(result){
-    console.log('load tmlList[0]');
+    console.log('loadhtmlList[0]');
     console.log(JSON.stringify(result));
-	$('.wrapper').append(result);
+
+    $('#html_1').append(result);
 	    return $.ajax(headUrl + htmlList[1])
 
 	}).then(function(result){
-        console.log('load tmlList[0]');
+        console.log('loadhtmlList[1]');
 	    console.log(JSON.stringify(result));
-	    $('.wrapper').append(result);
-	    return $.ajax(headUrl + htmlList[2])
 
-	}).then(function(result) {
-		$('.wrapper').append(result);
-	});
+        $('#hnml_2').append(result);
+	    return $('#html_cycle').cycle({ fx: 'scrollLeft', speed: 1000, timeout: 2000 });
+    });
+
 
 /*function loadHtmlFiles(element) {
 	$.ajax({
